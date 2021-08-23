@@ -1,6 +1,6 @@
 app-id: com.bjareholt.johan.SimpleDiary
 runtime: org.gnome.Platform
-runtime-version: '3.38'
+runtime-version: '40'
 sdk: org.gnome.Sdk
 command: simple-diary
 modules:
@@ -15,7 +15,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/gnome/libhandy.git
-        tag: 1.2.0
+        tag: 1.2.3
   - name: simple-diary
     buildsystem: meson
     sources:
