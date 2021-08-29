@@ -10,18 +10,38 @@ modules:
       - type: git
         url: https://github.com/mity/md4c.git
         tag: release-0.4.7
-  - name: libhandy
+  - name: libadwaita
+    buildsystem: meson
+    config-opts: [ "-Dexamples=false", "-Dtests=false" ]
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/gnome/libadwaita.git
+        tag: 1.0.0-alpha.2
+    modules:
+      - name: libsass
+        buildsystem: meson
+        sources:
+         - type: git
+           url: https://github.com/lazka/libsass.git
+           branch: meson
+      - name: sassc
+        buildsystem: meson
+        sources:
+          - type: git
+            url: https://github.com/lazka/sassc.git
+            branch: meson
+  - name: gtkmdview
     buildsystem: meson
     sources:
       - type: git
-        url: https://gitlab.gnome.org/gnome/libhandy.git
-        tag: 1.2.3
+        url: https://github.com/johan-bjareholt/gtkmdview.git
+        tag: 0.4.2
   - name: simple-diary
     buildsystem: meson
     sources:
       - type: git
         url: https://github.com/johan-bjareholt/simple-diary-gtk.git
-        tag: v0.2.1
+        tag: v0.3.1-3
 finish-args:
   # Wayland access
   - --socket=wayland
