@@ -21,12 +21,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/johan-bjareholt/simple-diary-gtk.git
-        tag: v0.4.5
+        tag: v0.4.6
 finish-args:
   # Wayland access
   - --socket=wayland
   # fallback to X11 + XShm access
   - --socket=fallback-x11
   - --device=dri
-  # Needs to save diary locally and it's user-configurable
-  - --filesystem=home
+  # To read/write config and diary entries
+  - --filesystem=xdg-config/simple-diary,xdg-data/SimpleDiary
