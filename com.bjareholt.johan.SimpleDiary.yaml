@@ -1,11 +1,11 @@
 app-id: com.bjareholt.johan.SimpleDiary
 runtime: org.gnome.Platform
-runtime-version: '45'
+runtime-version: '47'
 sdk: org.gnome.Sdk
 command: simple-diary
 modules:
   - name: md4c
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/mity/md4c.git
@@ -21,12 +21,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/johan-bjareholt/simple-diary-gtk.git
-        tag: v0.4.6
+        tag: v0.4.8
 finish-args:
   # Wayland access
   - --socket=wayland
   # fallback to X11 + XShm access
   - --socket=fallback-x11
+  - --share=ipc
+  # GPU acceleration
   - --device=dri
-  # To read/write config and diary entries
-  - --filesystem=xdg-config/simple-diary,xdg-data/SimpleDiary
